@@ -8,7 +8,7 @@ namespace CMP1903M_A01_2223
 {
     internal class Pack
     {
-        List<Card> pack = new List<Card> ();
+        public List<Card> pack = new List<Card> ();
 
         public Pack()
         {
@@ -34,10 +34,17 @@ namespace CMP1903M_A01_2223
             List<Card> shuffledPack = new List<Card>();
             if (typeOfShuffle == 1)
             {
-                for (int i = 0; pack.Count - 1; i > 0; i--)
-
-                    
+                for (int i = pack.Count - 1; i > 0; i--)
+                {
+                    int j = random.Next(i + 1);
+                    var l = pack[i];
+                    pack[i] = pack[j];
+                    pack[j] = l;
+                }
             }
+            //Riffle Shuffle
+            if (typeOfShuffle == 2)
+
 
 
 
