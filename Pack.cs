@@ -26,11 +26,23 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        public static bool shuffleCardPack(int typeOfShuffle)
+        public bool shuffleCardPack(int typeOfShuffle)
         {
             //Shuffles the pack based on the type of shuffle
             //Fisher Yates Shuffle
+            Random random = new Random();
+            List<Card> shuffledPack = new List<Card>();
+            if (typeOfShuffle == 1)
+            {
+                for (int i = 0; pack.Count - 1; i > 0; i--)
 
+                    
+            }
+
+
+
+
+            return false;
         }
         public static Card deal()
         {
@@ -41,5 +53,6 @@ namespace CMP1903M_A01_2223
         {
             //Deals the number of cards specified by 'amount'
         }
+        
     }
 }
