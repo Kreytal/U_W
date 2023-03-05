@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
-    class Program
+    internal class Testing
     {
-        static void Main(string[] args)
-        {
-            Testing testing = new Testing();
-        }
+        Pack pack = new Pack();
+        
     }
 }

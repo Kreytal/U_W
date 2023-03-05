@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
-    class Program
+    internal class Validation
     {
-        static void Main(string[] args)
-        {
-            Testing testing = new Testing();
-        }
     }
 }
