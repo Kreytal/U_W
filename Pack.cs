@@ -52,10 +52,14 @@ namespace CMP1903M_A01_2223
                 int half = pack.Count / 2;
                 List<Card> leftHalf = pack.GetRange(0, half);
                 List<Card> rightHalf = pack.GetRange(half, pack.Count);
+                //pack.Clear(); clear the pack after splitting it
                 while (leftHalf.Count != 0 && rightHalf.Count != half)
                 {
 
                 }
+                //pack.Add(leftHalf)/pack.Add(leftHalf) add the split shuffled cards to cleared pack after shuffle 
+                pack.Add(new Card());
+
             }
             if (typeOfShuffle == 3)
             {
