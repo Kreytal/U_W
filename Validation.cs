@@ -13,11 +13,10 @@ namespace CMP1903M_A01_2223
 			int intInput;
 			while (true)
 			{
-				Console.WriteLine("Please enter integer value:");
 				string rawInput = Console.ReadLine();
 				if (int.TryParse(rawInput, out intInput))
 				{
-					if (intInput > 0 && intInput < 4)
+					if (intInput >= 0 && intInput < 4)
 						return intInput;
 					else
 					{
