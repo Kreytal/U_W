@@ -8,7 +8,7 @@ namespace CMP1903M_A01_2223
 {
     internal class Pack
     {
-        public List<Card> pack = new List<Card> ();
+        static public List<Card> pack = new List<Card> ();
 
         public Pack()
         {
@@ -97,18 +97,35 @@ namespace CMP1903M_A01_2223
             }
             return false;
         }
+        //List to be used for storing dealt cards
+        static List<Card> dealtCards = new List<Card>();
+        public static Card deal()
+        {
+            //Deals one card into dealtCards list
+            dealtCards.Add(pack[0]);
+            dealtCards[0].Show();
+            //Removes the card from the pack list as you deal
+            pack.RemoveAt(0);
+            //returns the pack first index values
+            return dealtCards[0];
 
 
-        //public static Card deal()
-        //{
-            //Deals one card
-
-
-        //}
-        //public static List<Card> dealCard(int amount)
-        //{
-        //    //Deals the number of cards specified by 'amount'
-        //}
+        }
+        public static List<Card> dealCard(int amount)
+        {
+            
+            //Deals the number of cards specified by 'amount'
+            for (int i = 0; i < amount; i++)
+            {
+                dealtCards.Add(pack[0]);
+                pack.RemoveAt(0);
+            }
+            foreach(Card card in dealtCards)
+            {
+                card.Show();
+            }
+            return dealtCards;
+        }
 
     }
 }

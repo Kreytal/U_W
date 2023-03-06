@@ -19,11 +19,14 @@ namespace CMP1903M_A01_2223
             int dealChoice = validation.intInputValidation(1, 2);
             if (dealChoice == 1)
             {
-
+                Console.WriteLine("One card dealt:");
+                Pack.deal();
             }
             if (dealChoice == 2)
             {
-
+                Console.WriteLine("Please enter the amount of cards you want to deal");
+                int cardsToDeal = validation.intInputValidation(1, 52);
+                Pack.dealCard(cardsToDeal);
             }
             
         }
