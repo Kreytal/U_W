@@ -15,7 +15,7 @@ namespace CMP1903M_A01_2223
             //Initialise the card pack here
             for(int value = 1; value < 14; value++)
             {
-                for (int suit = 0; suit < 5; suit++)
+                for (int suit = 1; suit < 5; suit++)
                 {
                     pack.Add(new Card(value, suit));
                 }
@@ -41,25 +41,46 @@ namespace CMP1903M_A01_2223
                     pack[i] = pack[j];
                     pack[j] = l;
                 }
+                foreach (Card card in pack)
+                {
+                    card.Show();
+                }
             }
             //Riffle Shuffle
             if (typeOfShuffle == 2)
+            {
+                int half = pack.Count / 2;
+                List<Card> leftHalf = pack.GetRange(0, half);
+                List<Card> rightHalf = pack.GetRange(half, pack.Count);
+                while (leftHalf.Count != 0 && rightHalf.Count != half)
+                {
 
+                }
+            }
+            if (typeOfShuffle == 3)
+            {
+                Console.WriteLine("No shuffle");
 
-
-
-
+                foreach (Card card in pack)
+                {
+                    card.Show();
+                }
+                return true;
+            }
             return false;
         }
+
+
         public static Card deal()
         {
             //Deals one card
 
+
         }
-        public static List<Card> dealCard(int amount)
-        {
-            //Deals the number of cards specified by 'amount'
-        }
-        
+        //public static List<Card> dealCard(int amount)
+        //{
+        //    //Deals the number of cards specified by 'amount'
+        //}
+
     }
 }

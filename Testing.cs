@@ -8,7 +8,12 @@ namespace CMP1903M_A01_2223
 {
     internal class Testing
     {
-        Pack pack = new Pack();
-        
+        public Testing()
+        {
+            Pack pack = new Pack();
+            Validation validation = new Validation();
+            int userInput = validation.intInputValidation();
+            bool test = pack.shuffleCardPack(userInput);
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
-    internal class Validation
+    public class Validation
     {
         public int intInputValidation()
         {
