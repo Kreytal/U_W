@@ -8,7 +8,7 @@ namespace CMP1903M_A01_2223
 {
     public class Validation
     {
-        public int intInputValidation()
+        public int intInputValidation(int lowValue, int highValue)
         {
 			int intInput;
 			while (true)
@@ -16,7 +16,7 @@ namespace CMP1903M_A01_2223
 				string rawInput = Console.ReadLine();
 				if (int.TryParse(rawInput, out intInput))
 				{
-					if (intInput >= 0 && intInput < 4)
+					if (intInput >= lowValue && intInput <= highValue)
 						return intInput;
 					else
 					{
