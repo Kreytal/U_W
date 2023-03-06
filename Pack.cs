@@ -50,7 +50,7 @@ namespace CMP1903M_A01_2223
             //Riffle Shuffle
             if (typeOfShuffle == 2)
             {
-                //pack = random.Next(0, pack.Count - 1);
+                pack = pack.OrderBy(i => random.Next()).ToList();
                 int half = pack.Count / 2;
                 List<Card> leftHalf = pack.GetRange(0, half);
                 List<Card> rightHalf = pack.GetRange(half, half); //half/half was used as pack.count would cause an error out of boundaries.
@@ -81,11 +81,13 @@ namespace CMP1903M_A01_2223
 
                 foreach (Card card in shuffledPack)
                 {
+                    pack.Add(card);
+                }
+                shuffledPack.Clear();
+                foreach (Card card in pack)
+                {
                     card.Show();
                 }
-
-                //pack.Add(leftHalf)/pack.Add(leftHalf) add the split shuffled cards to cleared pack after shuffle 
-
 
             }
             if (typeOfShuffle == 3)
