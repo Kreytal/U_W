@@ -46,41 +46,58 @@ namespace CMP1903M_A01_2223
                 {
                     card.Show();
                 }
-                
+
+                return true;
             }
             //Riffle Shuffle
             if (typeOfShuffle == 2)
             {
-                //Randomly order pack of cards
-                pack = pack.OrderBy(i => random.Next()).ToList();
-                int half = pack.Count / 2;
-                //split the pack of cards in 2 lists
-                List<Card> leftHalf = pack.GetRange(0, half);
-                List<Card> rightHalf = pack.GetRange(half, half);
-                //Clear the pack to store shuffled cards later on
-                pack.Clear();
-                
-                //While count of both left/right halfs doesn't reach 0,
-                //keep dropping cards one on another proceeding riffle shuffle by storing it into shuffledPack list
-                while (leftHalf.Count > 0 && rightHalf.Count > 0)
+                //counter to be used to how many times the pack will be shuffled
+                int counter = random.Next(5, 7);
+                //chance to make use of random within the shuffling
+                int chance;
+
+
+                for (int i = 0; i != counter; i++)
                 {
                     
-                    for (int i = 0; i < half; i++)
+                    int half = pack.Count / 2;
+                    //split the pack of cards in 2 lists
+                    List<Card> leftHalf = pack.GetRange(0, half);
+                    List<Card> rightHalf = pack.GetRange(half, half);
+                    //Clear the pack to store shuffled cards later on
+                    pack.Clear();
+                    //While count of both left/right halfs doesn't reach 0,
+                    //keep dropping cards one on another proceeding riffle shuffle by storing it into shuffledPack list
+                    while (leftHalf.Count > 0 || rightHalf.Count > 0)
                     {
-                        shuffledPack.Add(leftHalf[0]);
-                        leftHalf.RemoveAt(0);
-                        shuffledPack.Add(rightHalf[0]);
-                        rightHalf.RemoveAt(0);
+                        //Chance will generate the random number, to determine how many cards will be placed from one hand
+                        chance = random.Next(0, 100);
+                        //As riffle shuffle is rarely 100% accurate, and it can not possibly deal cards 1 by 1 precicely 
+                        if (chance > 50)
+                        {
+                            shuffledPack.Add(leftHalf[0]);
+                            leftHalf.RemoveAt(0);
+
+                        }
+                        else if (chance <= 50)
+                        {
+                            shuffledPack.Add(rightHalf[0]);
+                            rightHalf.RemoveAt(0);
+                        }
+                        
                     }
+                    shuffledPack.AddRange(leftHalf);
+                    shuffledPack.AddRange(rightHalf);
+                    
+                    Console.WriteLine("Pack has been shuffled via Riffle Shuffle");
+                    //Store each element of shuffledPack into pack List
+                    foreach (Card card in shuffledPack)
+                    {
+                        pack.Add(card);
+                    }
+                    shuffledPack.Clear();
                 }
-                Console.WriteLine("Pack has been shuffled via Riffle Shuffle");
-                //Store each element of shuffledPack into pack List
-                foreach (Card card in shuffledPack)
-                {
-                    pack.Add(card);
-                }
-                //Clear the shuffledPack list
-                shuffledPack.Clear();
                 return true;
 
             }

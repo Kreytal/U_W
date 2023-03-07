@@ -14,6 +14,7 @@ namespace CMP1903M_A01_2223
 			int intInput;
 			while (true)
 			{
+                Console.WriteLine("Input value");
 				//Get value from the user through input
 				string rawInput = Console.ReadLine();
 				//Parse the value as integer type and convert into intInput
