@@ -46,6 +46,7 @@ namespace CMP1903M_A01_2223
                 {
                     card.Show();
                 }
+                
             }
             //Riffle Shuffle
             if (typeOfShuffle == 2)
@@ -80,6 +81,7 @@ namespace CMP1903M_A01_2223
                 }
                 //Clear the shuffledPack list
                 shuffledPack.Clear();
+                return true;
 
             }
             //No shuffle choice
@@ -97,11 +99,14 @@ namespace CMP1903M_A01_2223
         {
             //Deals one card into dealtCards list
             dealtCards.Add(pack[0]);
-            dealtCards[0].Show();
+            foreach (Card card in dealtCards)
+            {
+                card.Show();
+            }
             //Removes the card from the pack list as you deal
             pack.RemoveAt(0);
             //returns the pack first index values
-            return dealtCards[0];
+            return dealtCards[dealtCards.Count];
 
 
         }

@@ -20,18 +20,25 @@ namespace CMP1903M_A01_2223
             //Provides choice to the user how he would like to deal the cards
             Console.WriteLine("Now choose whether you want to: 1. Deal one card; 2. Deal cards by amount");
             int dealChoice = validation.intInputValidation(1, 2);
-            if (dealChoice == 1)
+            if (shuffled == true)
             {
-                Console.WriteLine("One card dealt:");
-                Pack.deal();
+                if (dealChoice == 1)
+                {
+                    Console.WriteLine("One card dealt:");
+                    Pack.deal();
+                }
+                else if (dealChoice == 2)
+                {
+                    Console.WriteLine("Please enter the amount of cards you want to deal");
+                    int cardsToDeal = validation.intInputValidation(1, Pack.pack.Count);
+                    Pack.dealCard(cardsToDeal);
+                }
             }
-            if (dealChoice == 2)
+            //determines if the sahuffle methods returned True.
+            else
             {
-                Console.WriteLine("Please enter the amount of cards you want to deal");
-                int cardsToDeal = validation.intInputValidation(1, 52);
-                Pack.dealCard(cardsToDeal);
+                Console.WriteLine("Shuffle Error");
             }
-            
         }
     }
 }
