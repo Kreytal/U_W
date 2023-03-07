@@ -69,10 +69,10 @@ namespace CMP1903M_A01_2223
                     pack.Clear();
                     //While count of both left/right halfs doesn't reach 0,
                     //keep dropping cards one on another proceeding riffle shuffle by storing it into shuffledPack list
-                    while (leftHalf.Count > 0 || rightHalf.Count > 0)
+                    while (leftHalf.Count > 0 && rightHalf.Count > 0)
                     {
                         //Chance will generate the random number, to determine how many cards will be placed from one hand
-                        chance = random.Next(0, 100);
+                        chance = random.Next(-1, 100);
                         //As riffle shuffle is rarely 100% accurate, and it can not possibly deal cards 1 by 1 precicely 
                         if (chance > 50)
                         {
@@ -89,14 +89,16 @@ namespace CMP1903M_A01_2223
                     }
                     shuffledPack.AddRange(leftHalf);
                     shuffledPack.AddRange(rightHalf);
-                    
                     Console.WriteLine("Pack has been shuffled via Riffle Shuffle");
                     //Store each element of shuffledPack into pack List
                     foreach (Card card in shuffledPack)
                     {
                         pack.Add(card);
                     }
-                    shuffledPack.Clear();
+                    foreach (Card card in pack)
+                    {
+                        card.Show();
+                    }
                 }
                 return true;
 
