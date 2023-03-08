@@ -42,11 +42,6 @@ namespace CMP1903M_A01_2223
                     pack[j] = l;
                 }
                 Console.WriteLine("Pack has been shuffled via Fisher Yanes Shuffle");
-                foreach (Card card in pack)
-                {
-                    card.Show();
-                }
-
                 return true;
             }
             //Riffle Shuffle
@@ -89,17 +84,15 @@ namespace CMP1903M_A01_2223
                     }
                     shuffledPack.AddRange(leftHalf);
                     shuffledPack.AddRange(rightHalf);
-                    Console.WriteLine("Pack has been shuffled via Riffle Shuffle");
+                    
                     //Store each element of shuffledPack into pack List
                     foreach (Card card in shuffledPack)
                     {
                         pack.Add(card);
                     }
-                    foreach (Card card in pack)
-                    {
-                        card.Show();
-                    }
+                    shuffledPack.Clear();
                 }
+                Console.WriteLine("Pack has been shuffled via Riffle Shuffle");
                 return true;
 
             }
@@ -125,7 +118,7 @@ namespace CMP1903M_A01_2223
             //Removes the card from the pack list as you deal
             pack.RemoveAt(0);
             //returns the pack first index values
-            return dealtCards[dealtCards.Count];
+            return dealtCards[dealtCards.Count -1];
 
 
         }
